@@ -1,0 +1,50 @@
+<?php
+/**
+ * @file
+ * Insert anchor links using the rich-text editor.
+ */
+
+/**
+ * Implements hook_ckeditor_plugins().
+ */
+function anchor_link_ckeditor_plugins() {
+  $path = backdrop_get_path('module', 'anchor_link') . '/plugins';
+
+  $plugins['link'] = array(
+    'path' => $path . '/link',
+    'file' => 'plugin.js',
+    'internal' => FALSE,
+    'enabled callback' => '_anchor_link_plugin_check',
+    'dependencies' => array('fakeobjects'),
+    'buttons' => array(
+      'LinkToAnchor' => array(
+        'label' => t('Link to anchor'),
+        'image' => $path . '/link/icons/link.png',
+      ),
+      'UnlinkAnchor' => array(
+        'label' => t('Unlink Anchor'),
+        'image' => $path . '/link/icons/unlink.png',
+      ),
+      'Anchor' => array(
+        'label' => t('Anchor'),
+        'image' => $path . '/link/icons/anchor.png',
+      ),
+    ),
+  );
+
+  $plugins['fakeobjects'] = array(
+    'path' => $path . '/fakeobjects',
+    'file' => 'plugin.js',
+    'internal' => FALSE,
+    'enabled callback' => '_anchor_link_plugin_check',
+  );
+
+  return $plugins;
+}
+
+/**
+ * Plugin enabled callback.
+ */
+function _anchor_link_plugin_check($format, $plugin_name) {
+  return TRUE;
+}

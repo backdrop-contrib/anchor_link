@@ -1,0 +1,15 @@
+type = module
+name = CKEditor Anchor Link
+description = Insert anchor links using the rich-text editor.
+backdrop = 1.x
+
+; Link to the module's configuration page.
+configure = admin/config/content/formats
+
+; List any dependencies here.
+dependencies[] = ckeditor
+
+; Find suggested packages and tags at: https://docs.backdropcms.org/documentation/module-packages-and-tags
+package = User interface
+
+tags[] = Rich-Text Editor
