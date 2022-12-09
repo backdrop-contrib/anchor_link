@@ -17,11 +17,11 @@ function anchor_link_ckeditor_plugins() {
     'enabled callback' => '_anchor_link_plugin_check',
     'dependencies' => array('fakeobjects'),
     'buttons' => array(
-      'LinkToAnchor' => array(
+      'Link' => array(
         'label' => t('Link to anchor'),
         'image' => $path . '/link/icons/link.png',
       ),
-      'UnlinkAnchor' => array(
+      'Unlink' => array(
         'label' => t('Unlink Anchor'),
         'image' => $path . '/link/icons/unlink.png',
       ),
